@@ -14,4 +14,4 @@ RUN chmod +x main
 
 EXPOSE 80
 
-CMD [ "sudo ./main" ]
+CMD [ "./main" ]
