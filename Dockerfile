@@ -12,7 +12,6 @@ RUN go build -o main ./main.go
 
 RUN chmod +x main
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD [ "sudo ./main" ]
-
