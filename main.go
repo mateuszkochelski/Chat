@@ -12,5 +12,5 @@ func main() {
 		w.WriteHeader(http.StatusOK)
 		json.NewEncoder(w).Encode(map[string]string{"message": "Hello world"})
 	})
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":80", nil)
 }

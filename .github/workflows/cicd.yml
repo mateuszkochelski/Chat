@@ -28,5 +28,5 @@ jobs:
           - name: Delete old container
             run: docker rm -f chat-container
           - name: Run docker container
-            run: docker run -d -p 8080:8080 --name chat-container unsignedgodeveloper/chat
+            run: docker run -d -p 80:80 --name chat-container unsignedgodeveloper/chat
           
