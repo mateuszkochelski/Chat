@@ -1,0 +1,32 @@
+name: Deploy Go Application
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-lates
+        steps:
+            - name: Checkout Source
+              uses: actions/checkout@v4
+            - name: Create .env file
+              run: echo "PORT=${{ secrets.PORT }}" >> .env
+            - name: Login to docker hub
+              run: docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASSWORD }}
+            - name: Build docker image
+              run: docker build -t unsignedgodeveloper/chat .
+            - name: Push image to docker hub
+              run: docker push unsignedgodeveloper/chat:latest            
+    deploy:
+        needs: build
+        runs-on: self-hosted
+        steps:
+          - name: Pull docker image
+            run: docker pull unsignedgodeveloper/chat:latest
+          - name: Delete old container
+            run: docker rm -f chat-container
+          - name: Run docker container
+            run: docker run -d -p 8080:8080 --name chat-container unsignedgodeveloper/chat
+          
