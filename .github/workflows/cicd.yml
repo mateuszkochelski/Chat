@@ -17,7 +17,7 @@ jobs:
               run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
             
             - name: Build docker image
-              run: docker build -t unsignedgodeveloper/chat -f backend/Dockerfile .
+              run: docker build -t unsignedgodeveloper/chat -f backend/Dockerfile ./backend
 
             - name: Push image to docker hub
               run: docker push unsignedgodeveloper/chat:latest       
@@ -31,7 +31,7 @@ jobs:
           run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
   
         - name: Build Frontend Docker Image
-          run: docker build -t unsignedgodeveloper/chat-frontend:latest -f frontend/Dockerfile .
+          run: docker build -t unsignedgodeveloper/chat-frontend:latest -f frontend/Dockerfile ./frontend
   
         - name: Push Frontend Image to Docker Hub
           run: docker push unsignedgodeveloper/chat-frontend:latest

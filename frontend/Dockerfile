@@ -2,13 +2,13 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY frontend/package*.json ./
+COPY package*.json ./
 
 RUN npm install
 
 COPY . .
 
-RUN cd frontend && npm run build
+RUN npm run build
 
 EXPOSE 4173
 
