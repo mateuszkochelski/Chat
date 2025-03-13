@@ -38,7 +38,7 @@ jobs:
             
 
     deploy:
-        needs: build
+        needs: [build, build-frontend]
         runs-on: self-hosted
         steps:
           - name: Pull docker image
