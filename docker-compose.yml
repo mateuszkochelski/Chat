@@ -15,7 +15,7 @@ services:
     container_name: chat_container
     restart: always
     ports:
-      - 8080:8080
+      - "8080:8080"
     
   nginx:
     image: nginx:latest
