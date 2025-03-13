@@ -8,6 +8,7 @@ export default defineConfig({
     host: true,
   },
   preview: {
+    allowedHosts: ['frontend_container'],
     port: 4173,
     host: true,
   },
