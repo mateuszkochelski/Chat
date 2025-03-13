@@ -8,7 +8,7 @@ export default defineConfig({
     host: true,
   },
   preview: {
-    allowedHosts: ['frontend_container'],
+    allowedHosts: ['frontend_container', 'rodzinkowychatsocketowy.pl'],
     port: 4173,
     host: true,
   },
